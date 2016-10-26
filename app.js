@@ -93,9 +93,9 @@ app.get('/logout', function(req, res) {
       });
 
 // serve the files out of ./public as our main files
-app.use(express.static(__dirname + '/public'));
+app.use('/', express.static(__dirname + '/public'));
 
-app.get('/public', function(req, res, next) {
+app.get('/', function(req, res, next) {
     ensureAuthenticated(req, res, next);
     next();
 });
