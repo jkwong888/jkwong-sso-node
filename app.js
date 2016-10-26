@@ -97,7 +97,7 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res, next) {
     ensureAuthenticated(req, res, next);
-})(req,res,next);
+});
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
