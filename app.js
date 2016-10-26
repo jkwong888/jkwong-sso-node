@@ -15,6 +15,10 @@ var cfenv = require('cfenv');
 // create a new express server
 var app = express();
 
+var passport = require('passport'); 
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 app.use(cookieParser());
 app.use(session({resave: 'true', saveUninitialized: 'true' , secret: 'keyboard cat'}));
 app.use(passport.initialize());
@@ -82,7 +86,7 @@ app.get('/auth/sso/callback',function(req,res,next) {
 app.get('/failure', function(req, res) { 
              res.send('login failed'); });
 
-app.get(‘/logout’, function(req, res) {
+app.get('/logout', function(req, res) {
           req.logout();
           res.redirect('https://' + issuer_id +
                   '/idaas/mtfim/sps/idaas/logout');

@@ -10,6 +10,7 @@
 		"cfenv": "1.0.x",
         "passport": "*",
         "cookie-parser": "*",
+        "express-session": "*",
         "passport-idaas-openidconnect": "*"
 	},
 	"repository": {},
