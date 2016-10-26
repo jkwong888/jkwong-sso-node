@@ -93,11 +93,14 @@ app.get('/logout', function(req, res) {
       });
 
 // serve the files out of ./public as our main files
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res, next) {
     ensureAuthenticated(req, res, next);
-});
+    next();
+}), function(req, res) {
+    app.use(express.static(__dirname + '/public'));
+};
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();
